@@ -1,11 +1,15 @@
-/***********************************
-            Matthew Whalley
- ***********************************/
+/****************************
+ Matthew Whalley
+ Mini-Project 1
+ 10 October 2016
+ ****************************/
 public class Dentist extends Person {
     /** Properties **/
     private String denId;
     private String passwd;
     private String office;
+    private AppointmentList appointList = new AppointmentList();
+
     /** Constructors **/
     public Dentist(){
         super();
@@ -27,15 +31,28 @@ public class Dentist extends Person {
     public String getPasswd(){ return passwd;}
     public void  setOffice(String o){ office = o; }
     public String getOffice(){ return office; }
-
-    public String toString(){
-        return super.toString() + "Dentist ID:\t" + getDenId() +
-                "\nPassword:\t" + getPasswd() +
-                "\nOffice:\t" + getOffice() + "\n";
+    public void addAppointment(Appointment a){
+        appointList.addAppointment(a);
     }
+
+    public void display(){
+        super.display();
+        System.out.println("DentistID: " + getDenId());
+        System.out.println("Password: " + getPasswd());
+        System.out.println("Office: " + getOffice());
+        appointList.display();
+    }
+
     public static void main(String[] args){
+        Appointment ap1;
+        ap1 = new Appointment("Dec 1, 2013, 9am", "A900", "D201", "P321");
+        Appointment ap2;
+        ap2 = new Appointment("1","2","3","4");
         Dentist d1;
         d1 = new Dentist("Frank","Martin","fm@gmail.com","D201","frank","539");
-        System.out.println(d1.toString());
+        d1.addAppointment(ap1);
+        d1.addAppointment(ap2);
+        d1.display();
+
     }
 }
