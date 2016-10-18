@@ -6,12 +6,12 @@ public class Recur {
 
     public void methRecur(int n){
         if(n == 100){
-            System.out.println("End Recursion");
+            System.out.println("End Recursion" + n);
         }
         else {
             System.out.println("Entering Method" + n);
             methRecur(++n);
-            System.out.println("Leaving Method" + n);
+            System.out.println("Leaving Method" + (n - 1));
         }
     }
     public static void main(String[] args){
